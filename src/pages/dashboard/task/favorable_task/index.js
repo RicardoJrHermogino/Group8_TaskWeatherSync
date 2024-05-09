@@ -4,12 +4,10 @@ import { ArrowBack, Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-ma
 import { useRouter } from 'next/router';
 import Navbar from '../../../components/navbar';
 
-// Sample data for tasks
 const initialTasks = {
   FavorableTask: [
     { id: 1, name: 'Task 1', location: 'Location 1', date: '2024-05-01', time: '09:00' },
     { id: 2, name: 'Task 2', location: 'Location 2', date: '2024-05-02', time: '10:00' },
-    // Add more tasks as needed
   ],
 };
 

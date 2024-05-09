@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Typography, Paper, Grid, Box, IconButton, CssBaseline } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
 import Navbar from '../../../components/navbar';
-import { useRouter } from 'next/router'; // Import the useRouter hook
+import { useRouter } from 'next/router'; 
 
 const RestrictedTasksPage = () => {
   const restrictedTasks = Array.from({ length: 16 }, (_, index) => ({
@@ -15,7 +15,7 @@ const RestrictedTasksPage = () => {
     borderRadius: "5px"
   };
   
-  const router = useRouter(); // Initialize the useRouter hook
+  const router = useRouter();
   
   const handleGoBack = () => {
     router.back();

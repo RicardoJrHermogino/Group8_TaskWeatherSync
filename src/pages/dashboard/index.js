@@ -43,7 +43,7 @@ const Dashboard = () => {
       <Grid container mb={15} spacing={6} style={gradientStyle}>
 
         <Dialog open={open} onClose={() => handleClose(false)}>
-          <DialogTitle>Allow Location Access</DialogTitle>
+          <DialogTitle >Allow Location Access</DialogTitle>
           <DialogContent>
             <Typography variant="body1" gutterBottom>
               To provide you with accurate weather information in your location, please allow access to your location.
@@ -76,7 +76,7 @@ const Dashboard = () => {
 
         {displayAllowButton && (
           <Grid item xs={12} textAlign={'center'}>
-            <Button  variant="contained" color="primary" sx={{minWidth: "90%", borderRadius: "20px"}} onClick={() => handleClose(true)}>
+            <Button  variant="contained" sx={{bgcolor:'black',minWidth: "90%", borderRadius: "20px"}} onClick={() => handleClose(true)}>
               Allow Location
             </Button>
           </Grid>

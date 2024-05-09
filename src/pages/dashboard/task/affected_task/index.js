@@ -4,7 +4,6 @@ import { ArrowBack, Edit as EditIcon, Delete as DeleteIcon, AddCircle as AddCirc
 import { useRouter } from 'next/router';
 import Navbar from '../../../components/navbar';
 
-// Sample data for tasks
 const initialTasks = {
   AllScheduledTask: [
     { id: 1, name: 'Transplanting Rice Seedlings', location: 'Rice Paddy', date: '2024-05-06', time: '08:00' },
@@ -12,7 +11,6 @@ const initialTasks = {
     { id: 3, name: 'Weeding Rice Plants', location: 'Rice Farm', date: '2024-05-08', time: '11:00' },
     { id: 4, name: 'Monitoring Water Levels', location: 'Irrigation Canal', date: '2024-05-09', time: '13:00' },
     { id: 5, name: 'Harvesting Rice Grains', location: 'Harvesting Field', date: '2024-05-10', time: '10:30' },
-    // Add more tasks as needed
   ],
 };
 
@@ -21,7 +19,7 @@ const gradientStyle = {
   borderRadius: "5px"
 };
 
-const AllScheduled = () => {
+const AffectedTask = () => {
   const router = useRouter();
   const [tasks, setTasks] = useState(initialTasks);
   const [openDialog, setOpenDialog] = useState(false);
@@ -83,13 +81,12 @@ const AllScheduled = () => {
             <Typography variant="h4" align="left"><strong>Task</strong></Typography>
           </Grid>
 
-          {/* Display message for rescheduling */}
           <Grid item xs={12}>
             <Typography variant="subtitle1" color="error">The following scheduled tasks do not meet the weather conditions. Please reschedule.</Typography>
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <Typography variant="h6" gutterBottom align="left"><strong> All Scheduled Task</strong></Typography>
+            <Typography variant="h6" gutterBottom align="left"><strong> All Affected Task</strong></Typography>
             <Grid container spacing={2} mt={1}>
               {tasks.AllScheduledTask.map((task, index) => (
                 <Grid item key={task.id} xs={12}>
@@ -166,4 +163,4 @@ const AllScheduled = () => {
   );
 };
 
-export default AllScheduled;
+export default AffectedTask;

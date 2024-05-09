@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Container, Typography, TextField, Button, Grid } from '@mui/material';
-import { useRouter } from 'next/router'; // Import useRouter hook
+import { useRouter } from 'next/router';
 
 export default function PasswordVerification() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
-    const router = useRouter(); // Initialize the useRouter hook
+    const router = useRouter(); 
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -14,10 +14,7 @@ export default function PasswordVerification() {
             setError('Passwords do not match');
             return;
         }
-        // Passwords match, proceed with form submission or other action
-        // For example, you can call an API to verify the passwords
-        console.log('Passwords match:', password);
-        router.push('/login'); // Navigate to the login page
+        router.push('/login'); 
     };
 
     return (
@@ -31,7 +28,7 @@ export default function PasswordVerification() {
                 minHeight: '100vh',
             }}
         >
-            <Typography variant="h4" gutterBottom>Password Verification</Typography>
+            <Typography textAlign={'center'} variant="h5" mb={5} gutterBottom>Password Verification</Typography>
             <form onSubmit={handleSubmit} style={{ width: '100%' }}>
                 <Grid container spacing={2} justifyContent="center">
                     <Grid item xs={10}>

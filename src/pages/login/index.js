@@ -39,7 +39,7 @@ export default function Login() {
       <CssBaseline/>
       <Container maxWidth="sm"  >
       <Typography variant="h4" align="center" style={{ marginTop: '40px' }}>TaskWeatherSync</Typography>
-        <Grid container spacing={2} justifyContent="center" mb={48}  mt={5}>
+        <Grid container spacing={2} justifyContent="center"   mt={5}>
           <Grid item xs={12} md={12} sx={{ textAlign: "center"}}>
             <Typography variant="h4" align="center" style={{ marginTop: '100px' }}>Login</Typography>
             <Typography sx={{ fontSize: 'small' }}>

@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { Container, Typography, TextField, Button, Grid } from '@mui/material';
-import { useRouter } from 'next/router'; // Import useRouter hook
+import { useRouter } from 'next/router'; 
 
 export default function EmailVerification() {
     const [codes, setCodes] = useState(['', '', '', '', '', '']);
     const inputRefs = useRef([]);
-    const router = useRouter(); // Initialize the useRouter hook
+    const router = useRouter(); 
 
     const gradientStyle = {
         padding: "20px",
@@ -17,7 +17,6 @@ export default function EmailVerification() {
         newCodes[index] = value;
         setCodes(newCodes);
 
-        // Focus on the next input field if there's value
         if (value && index < inputRefs.current.length - 1) {
             inputRefs.current[index + 1].focus();
         }
@@ -25,21 +24,17 @@ export default function EmailVerification() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Combine the codes array to form the verification code
         const verificationCode = codes.join('');
-        console.log(verificationCode); // For testing purposes
+        console.log(verificationCode); 
 
-        // Navigate to the create password page
         router.push('/signup/verification/create_password');
     };
 
     const handleBack = () => {
-        // Navigate back to the previous page
         router.back();
     };
 
     const handleResendCode = () => {
-        // Handle resend code functionality here
         console.log("Resend code");
     };
 
@@ -62,8 +57,8 @@ export default function EmailVerification() {
                                 required
                                 value={code}
                                 onChange={(e) => handleCodeChange(index, e.target.value)}
-                                autoFocus={index === 0} // Focus on the first field
-                                inputRef={(input) => inputRefs.current[index] = input} // Set ref for each input field
+                                autoFocus={index === 0}
+                                inputRef={(input) => inputRefs.current[index] = input} 
                             />
                         </Grid>
                     ))}

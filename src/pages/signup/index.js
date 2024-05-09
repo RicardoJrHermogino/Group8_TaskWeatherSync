@@ -42,9 +42,9 @@ export default function SignUp() {
   return (
     <>
       <CssBaseline />
-      <Container maxWidth="large" mb={10}>
+      <Container maxWidth="large">
       <Typography variant="h4" align="center" style={{ marginTop: '40px' }}>TaskWeatherSync</Typography>
-        <Grid container spacing={2} mt={15} mb={20}>
+        <Grid container spacing={2} mt={15} >
           <Grid container spacing={2} justifyContent="center" alignItems="center" item xs={12} md={6}  >
             <Grid item md={7} xs={10}>
               <Typography variant="h4" align="center" >Register</Typography>

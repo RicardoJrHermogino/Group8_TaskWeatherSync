@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Typography, Box, TextField, FormControl, InputLabel, Select, MenuItem, Button, IconButton, Grid } from '@mui/material';
+import { Container, Typography, Box, TextField, FormControl, InputLabel, Select, MenuItem, Button, IconButton, Grid, CssBaseline } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
 import { useRouter } from 'next/router';
 import Navbar from '../../../components/navbar';
@@ -19,29 +19,32 @@ const style = {
 export default function AddTask() {
   const [taskName, setTaskName] = useState('');
   const [streetAddress, setStreetAddress] = useState('');
+  const [barangay, setBarangay] = useState('');
   const [city, setCity] = useState('');
+  const [municipality, setMunicipality] = useState('');
   const [state, setState] = useState('');
   const [postalCode, setPostalCode] = useState('');
   const [date, setDate] = useState('');
   const [restrictedWeather, setRestrictedWeather] = useState('');
   const [environment, setEnvironment] = useState('');
+  const [country, setCountry] = useState('');
 
   const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    // Redirect to another page after submission
+
     router.push('/dashboard/task/all_scheduled');
   };
 
   const handleGoBack = () => {
-    router.back(); // Go back to the previous page
+    router.back(); 
   };
 
   return (
     <>
     <Navbar/>
+    <CssBaseline/>
     <Container maxWidth="sm">
       <Grid container mb={10}>
       <Box sx={style}>
@@ -60,12 +63,12 @@ export default function AddTask() {
             required
           />
           <TextField
-            label="Street Address"
+            label="Country"
             variant="outlined"
             fullWidth
             margin="normal"
-            value={streetAddress}
-            onChange={(e) => setStreetAddress(e.target.value)}
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
             required
           />
           <TextField
@@ -78,15 +81,6 @@ export default function AddTask() {
             required
           />
           <TextField
-            label="State"
-            variant="outlined"
-            fullWidth
-            margin="normal"
-            value={state}
-            onChange={(e) => setState(e.target.value)}
-            required
-          />
-          <TextField
             label="Postal Code"
             variant="outlined"
             fullWidth
@@ -95,6 +89,32 @@ export default function AddTask() {
             onChange={(e) => setPostalCode(e.target.value)}
             required
           />
+          <TextField
+            label="Municipality"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            value={municipality}
+            onChange={(e) => setMunicipality(e.target.value)}
+            required
+          />
+          <TextField
+            label="Barangay"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            value={barangay}
+            onChange={(e) => setBarangay(e.target.value)}
+          />
+          <TextField
+            label="Street"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            value={streetAddress}
+            onChange={(e) => setStreetAddress(e.target.value)}
+          />
+          
           <TextField
             label="Date"
             variant="outlined"

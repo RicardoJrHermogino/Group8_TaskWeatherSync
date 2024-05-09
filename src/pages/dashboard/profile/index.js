@@ -1,21 +1,21 @@
-import { Container, Grid, Typography, CssBaseline, Paper, Button } from "@mui/material";
+import { Container, Grid, Typography, CssBaseline, Paper, Button, Avatar } from "@mui/material";
 import Navbar from "../../components/navbar";
 import { useState } from "react";
 import { useRouter } from 'next/router';
-
+import Image from "next/image";
 
 export default function ProfilePage() {
   const [profile, setProfile] = useState({
-    name: "John Doe",
-    email: "john.doe@example.com",
+    name: "Ricardo Jr. Hermogino",
+    email: "ricardohermoginojr@gmail.com",
+    industry: "Agriculture", 
+
   });
   const router = useRouter();
 
   const handleLogout = () => {
-    router.push('/');
-    
+    router.push('/login');
   };
-
 
   return (
     <>
@@ -28,27 +28,45 @@ export default function ProfilePage() {
               Profile
             </Typography>
           </Grid>
-        
-          <Grid item xs={10} align="center" mb={1}>
+          <Grid item xs={12} align="center" mb={1}>
             <Paper
               sx={{
+                position: 'relative', 
                 borderRadius: 5,
-                p: 2,
+                p: 4,
                 textAlign: "center",
-                boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.1)", // Increase box shadow
-                transition: "box-shadow 0.3s", // Add transition effect
+                boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.1)", 
+                transition: "box-shadow 0.3s", 
                 "&:hover": {
-                  boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.2)", // Box shadow on hover
-                  cursor: "pointer", // Change cursor on hover
+                  boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.2)", 
+                  cursor: "pointer", 
                 },
               }}
             >
-              <Typography variant="h6"> {profile.name}</Typography>
-              <Typography variant="body1"> {profile.email}</Typography>
-
-              <Button variant="contained" color="primary" onClick={handleLogout} sx={{ marginTop: '16px' }}>
-                Logout
+              <Button 
+                variant="contained" 
+                onClick={handleLogout} 
+                sx={{ 
+                  borderRadius:'17px',
+                  position: 'absolute',
+                  bgcolor:'black',
+                  top: 35, 
+                  right: 30, 
+                  zIndex: 1 
+                }}
+              >
+                Log out
               </Button>
+              <Avatar
+                alt={profile.name}
+                src="/avatar.jpg" 
+                sx={{ width: 50, height: 50, marginBottom: 2, }}
+              />
+              <Image src="/image/profile_display.png" alt="sample" width={160} height={140} />
+              <Typography variant="h6" gutterBottom><strong>{profile.name}</strong></Typography>
+              <Typography variant="body2" gutterBottom>{profile.email}</Typography>
+              <Typography variant="body2" gutterBottom>Industry: {profile.industry}</Typography> 
+              
             </Paper>
           </Grid>
         </Grid>
